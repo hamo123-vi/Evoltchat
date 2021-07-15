@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>   Evoltchat | chat aplikacija  </title>
+
+        <!-- Font-awesome CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- CSS for Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Primary application style -->
+        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 575px)" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 290px)" href="css/mikro.css" />
+        <link rel="stylesheet" href="css/main.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <!-- Main content-->
+        <div class="container">
+            <!--Navbar-->
+            <div class="row navbar fixed-top top">
+
+                <div class="col-9 col-lg-6 col-md-12 col-sm-12 text-md-cente text-center pl-lg-5 pl-md-0">
+                    <a href="evoltchat.html">
+                        <p class="caption mt-2 mb-2">
+                        Evoltchat <span class="caption remove">|</span> <span class="caption-extension remove">chat aplikacija</span>
+                        </p>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 text-right menu-container nav-item remove">
+                    <a href="#" class="menu nav-link ">
+                        Odjava
+                    </a>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-4 text-left menu-container nav-item remove">
+                    <a onclick="sidebarToggler()" class="menu nav-link">
+                        Aktivni
+                    </a>
+                </div>
+
+                <div class="col-3 hamburger-icon">
+                    <a onclick="sidebarToggler()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+
+            </div>
+            <!--End of Navbar-->
+
+            <!--Sidebar-->
+            <div id="sidebar" class="sidebar">
+                <div class="row">
+                    <div class="col-9">
+                        <h4>Aktivni korisnici</h4>
+                    </div>
+                    <div class="col-3">
+                        <a onclick="sidebarToggler()" class="menu">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Bootstrap scripts -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Primary application behavior -->
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>

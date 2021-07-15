@@ -1,0 +1,14 @@
+.caption
+{
+    text-align: left;
+}
+
+.remove
+{
+    display: none;
+}
+
+.hamburger-icon
+{
+    display:block !important;
+}
