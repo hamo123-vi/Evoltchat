@@ -14,6 +14,11 @@ body
   color: #E49010;
 }
 
+.caption:hover
+{
+  color: #E49010;
+}
+
 .caption-extension, .menu
 {
   font-family: Rosario;
@@ -47,15 +52,15 @@ body
   top:5px;
 }
 
-.menu-container :hover
-{
-  color: wheat;
-  border-radius: 8px;
-}
-
 a:hover
 {
   text-decoration: none;
+}
+
+.menu:hover
+{
+  cursor: pointer;
+  color:wheat
 }
 
 .sidebar
@@ -69,7 +74,6 @@ a:hover
   width: 300px;
   background-color: #4F3E3E;
   color: #E49010;
-  opacity: 1;
   border-top-left-radius: 32px;
   z-index:2;
   height:100%;
