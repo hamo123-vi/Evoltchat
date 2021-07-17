@@ -1,4 +1,4 @@
-<html>
+<html lang="cro">
     <head>
         <title>   Evoltchat | chat aplikacija  </title>
 
@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Primary application style -->
-        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 575px)" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 992px)" href="css/mobile.css" />
         <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 290px)" href="css/mikro.css" />
         <link rel="stylesheet" href="css/main.css">
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     </head>
 
     <body>
@@ -23,7 +24,7 @@
             <!--Navbar-->
             <div class="row navbar fixed-top top">
 
-                <div class="col-9 col-lg-6 col-md-12 col-sm-12 text-lg-left text-md-center text-center pl-lg-5 pl-md-0">
+                <div class="col-9 col-lg-6 col-md-9 col-sm-9 text-lg-left text-md-center text-center pl-lg-5 pl-md-0">
                     <p class="mt-2 mb-2 ml-lg-5">
                         <a class="caption" href="evoltchat.html" >
                         Evoltchat <span class="caption remove">|</span> <span class="caption-extension remove">chat aplikacija</span>
@@ -55,25 +56,68 @@
             <!--Sidebar-->
             <div id="sidebar" class="sidebar">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-9 mb-5">
                         <h4>Aktivni korisnici</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 mb-5">
                         <a onclick="sidebarToggler()" class="menu">
                             <i class="fas fa-times"></i>
                         </a>
                     </div>
                 </div>
+                    <div id="users">
+                        <div v-for="user in users" class="row users-container">
+                            <div id="username-container" class="col-9 float-left text-left">
+                                <p>{{user.username}}</p>
+                            </div>
+                            <div id="active-icon" class="col-3">
+                                <i class="fas fa-circle"></i>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <!--End of sidebar-->
+            <!-- End of sidebar -->
+
+            <!-- Messages window -->
+            <div class="row messages-window">
+                <div class="col-12">
+                    <div id="messages" class="row messages-container mt-4 ml-lg-2 ml-1 mr-lg-2 mr-1 mb-4 p-1">
+                        <div v-for="item in items" class="col-12 px-1">
+                            <div v-if="item.message === 'Foo'" class="message global-message float-left">
+                                <div  class=" message-container">
+                                    <p class="mx-3 my-1">hgggggggggggggggggggggggggggggggggggggggggggjlkkkkfčlkfčlkfčalkasdkfćaskdćflakfalčkfčlakfčlakćdsfkaćklfakfčadslk</p>
+                                </div>
+                            </div>
+                            <div v-else class="message my-message float-right">
+                                <div class="message-container">
+                                    <p class="mx-3 my-1">{{ item.message }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row send-container mr-2 ml-2 mb-4 mt-4 p-lg-3 p-md-2 py-1">
+                        <div id="input-container" class="col-lg-9 col-md-8 col-sm-8 col-6 align-middle d-flex px-0">
+                            <input type="text" class="message-text-input">
+                        </div>
+                        <div id="button-container" class="col-lg-3 col-md-4 col-sm-4 col-6 text-center px-0">
+                            <button class="btn send-button" type="button">Posalji</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap scripts -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <!-- Import Vue.js framework -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 
         <!-- Primary application behavior -->
         <script type="text/javascript" src="main.js"></script>
+
     </body>
 </html>

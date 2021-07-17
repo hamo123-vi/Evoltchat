@@ -1,0 +1,92 @@
+<html lang="cro">
+    <head>
+        <title>   Evoltchat | chat aplikacija  </title>
+
+        <!-- Font-awesome CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- CSS for Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Primary application style -->
+        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 992px)" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 290px)" href="css/mikro.css" />
+        <link rel="stylesheet" href="css/main.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    </head>
+
+    <body>
+
+        <!-- Main content-->
+        <div class="container">
+            <!--Navbar-->
+            <div class="row navbar fixed-top top">
+
+                <div id="caption-container" class="col-12 col-lg-6 text-lg-left text-md-center text-center pl-lg-5 pl-1">
+                    <p class="mt-2 mb-2 ml-lg-5">
+                        <a class="caption" href="evoltchat.html" >
+                        Evoltchat <span class="caption remove">|</span> <span class="caption-extension remove">chat aplikacija</span>
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+            <!--End of Navbar-->
+
+            <!-- Forms -->
+            <div class="row forms-container">
+                <div class="col-12 col-sm-6 evolt-form">
+                    <form>
+                        <div id="login-container" class="row">
+                            <div class="col-12">
+                                <h3>Prijava</h3>
+                                <br>
+                            </div>
+                            <div class="col-12">
+                                <input id="username" type="text" class="form-input mb-3" placeholder="Korisničko ime:">
+                            </div>
+                            <div class="col-12">
+                                <input id="login-password" type="password" class="form-input mb-4" placeholder="Lozinka:">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn send-button">Prijava</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6 col-12 evolt-form">
+                    <form>
+                        <div id="registration-container" class="row">
+                            <div class="col-12">
+                                <h3>Registracija</h3>
+                                <br>
+                            </div>
+                            <div class="col-12">
+                                <input id="registration-password" type="password" class="form-input mb-3" placeholder="Lozinka:">
+                            </div>
+                            <div class="col-12">
+                                <input id="repeat-password" type="password" class="form-input mb-4" placeholder="Lozinka:">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn send-button">Registracija</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        <!-- Bootstrap scripts -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <!-- Import Vue.js framework -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- Primary application behavior -->
+        <script type="text/javascript" src="main.js"></script>
+
+    </body>
+</html>

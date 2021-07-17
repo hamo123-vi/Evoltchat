@@ -1,6 +1,7 @@
-.caption
+#caption
 {
-    text-align: left;
+    position: relative !important;
+    left: 40% !important;
 }
 
 .remove
@@ -12,3 +13,35 @@
 {
     display:block !important;
 }
+
+.sidebar
+{
+    top:0 !important;
+    text-align: center !important;
+    border-radius: 0px !important;
+    z-index: 3 !important;
+    overflow-y: hidden !important;
+}
+
+.messages-window
+{
+    top:130px !important;
+    width:90% !important;
+    margin-top:25px !important;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+  }
+
+::-webkit-scrollbar-track {
+    background: #E49010; 
+  }
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
