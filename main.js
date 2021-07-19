@@ -46,3 +46,46 @@ function sidebarToggler()
         document.getElementById("sidebar").style.display = "block"
     }
 }
+
+function doLogin()
+{
+    var login_info=
+    {
+        "username": $("#username").val(),
+        "password": $("#login-password").val()
+    };
+
+    $("#loginButton").prop('disabled',true);
+    $.post("http://localhost/Evoltchat/api/login", login_info).done(function( data ) 
+    {
+        window.localStorage.setItem('user', JSON.stringify(data));
+        window.location="evoltchat.html";
+    }).fail(function( error ) {
+        alert(error.responseJSON.message);
+        $("#loginButton").prop('disabled',false);
+    });
+}
+
+function doRegister()
+{
+    var register_info=
+    {
+        "password": $("#registration-password").val()
+    };
+    if($("#registration-password").val() == $("#repeat-password").val())
+    {
+        $("#registrationButton").prop('disabled',true);
+        $.post("http://localhost/Evoltchat/api/register", register_info).done(function( data ) 
+        {
+            window.localStorage.setItem('user', JSON.stringify(data));
+            window.location="evoltchat.html";
+        }).fail(function( error ) {
+            alert(error.responseJSON.message);
+            $("#registrationButton").prop('disabled',false);
+        });
+    }
+    else
+    {
+        alert("Passwords must match");
+    }
+}

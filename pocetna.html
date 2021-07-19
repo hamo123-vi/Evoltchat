@@ -15,6 +15,7 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        
     </head>
 
     <body>
@@ -51,7 +52,7 @@
                                 <input id="login-password" type="password" class="form-input mb-4" placeholder="Lozinka:">
                             </div>
                             <div class="col-12">
-                                <button class="btn send-button">Prijava</button>
+                                <button id="loginButton" onclick="doLogin()" class="btn send-button">Prijava</button>
                             </div>
                         </div>
                     </form>
@@ -70,7 +71,7 @@
                                 <input id="repeat-password" type="password" class="form-input mb-4" placeholder="Lozinka:">
                             </div>
                             <div class="col-12">
-                                <button class="btn send-button">Registracija</button>
+                                <button id="registrationButton" onclick="doRegister()" class="btn send-button">Registracija</button>
                             </div>
                         </div>
                     </form>
@@ -84,6 +85,9 @@
         
         <!-- Import Vue.js framework -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- JQuery dependencies -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
         <!-- Primary application behavior -->
         <script type="text/javascript" src="main.js"></script>
