@@ -32,6 +32,7 @@
             if(!isset($db_user['id'])) throw new Exception("Pogrešna kombinacija korisničkog imena i lozinke", 400);
             if($db_user['password'] != sha1($user['password'])) throw new Exception("Pogrešna kombinacija korisničkog imena i lozinke", 400);
             $this->dao->updateActivity($db_user['username'], ['active' => 1]);
+            $db_user=$this->dao->getUserByUsername($user['username']);
             return $db_user;
         }
 
