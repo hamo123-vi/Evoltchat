@@ -9,8 +9,8 @@ require_once dirname(__FILE__)."/dao/BaseDao.Class.php";
 
 $basedao=new BaseDao();
 try{
-$basedao->update("users", 1, ['password' => 'updated123']);
-echo "Updated succesfully";
+$basedao->insert("users", ['username' => 'test002','password' => 'inserted123']);
+echo "Inserted succesfully";
 }
 catch (Exception $e)
 {
