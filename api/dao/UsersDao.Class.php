@@ -5,7 +5,7 @@ class UsersDao extends BaseDao
 {
     public function getUserByUsername($username)
     {
-        return $this->query("SELECT * FROM users WHERE username = :username", ["username" => $username]);
+        return $this->queryUnique("SELECT * FROM users WHERE username = :username LIMIT 1 OFFSET 0", ["username" => $username]);
     }
 
     public function getActiveUsers()

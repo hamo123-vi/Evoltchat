@@ -25,6 +25,12 @@ class BaseDao{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function queryUnique($query, $params)
+    {
+        $results=$this->query($query, $params);
+        return reset($results);
+    }
+
     public function update($table, $id, $entity, $id_column = "id")
     {
         $sql="UPDATE {$table} SET ";
