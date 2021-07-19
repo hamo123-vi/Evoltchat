@@ -7,5 +7,4 @@ error_reporting(E_ALL);
 
 require_once dirname(__FILE__)."/dao/UsersDao.Class.php";
 $usersdao = new UsersDao();
-$result = $usersdao->getUserByUsername("test002");
-print_r($result);
+$result = $usersdao->updateActivity("test003", ['active' => 0]);
