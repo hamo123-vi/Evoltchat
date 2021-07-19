@@ -15,5 +15,10 @@
             return $this->dao->getMessages();
         }
 
+        public function sendMessage($message)
+        {
+            $this->dao->sendMessage($message);
+        }
+
        
     }

@@ -7,6 +7,5 @@ error_reporting(E_ALL);
 
 require_once dirname(__FILE__)."/services/MessagesService.Class.php";
 $us = new MessagesService();
-$result = $us->loadMessages();
-print_r($result);
+$us->sendMessage(['body' => 'Jesam, reciiii', 'user_id' => 1]);
 
