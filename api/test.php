@@ -8,5 +8,11 @@ error_reporting(E_ALL);
 require_once dirname(__FILE__)."/dao/BaseDao.Class.php";
 
 $basedao=new BaseDao();
-$results=$basedao->query("SELECT * FROM users", []);
-print_r($results);
+try{
+$basedao->update("users", 1, ['password' => 'updated123']);
+echo "Updated succesfully";
+}
+catch (Exception $e)
+{
+    echo $e->getMessage();
+}
