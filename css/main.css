@@ -3,6 +3,7 @@
 body
 {
   background-color: #E49010;
+  overflow-y: hidden;
 }
 
 .caption
@@ -67,8 +68,6 @@ a:hover
 {
   font-family: Rosario;
   text-align: center;
-  padding:25px;
-  padding-left: 10px;
   position: absolute;
   right: 0;
   top:170px;
@@ -76,9 +75,11 @@ a:hover
   background-color: #4F3E3E;
   color: #E49010;
   border-top-left-radius: 32px;
-  z-index:1;
+  z-index:4;
   height:100%;
   display: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #active-icon
@@ -89,6 +90,11 @@ a:hover
   top: 13px;
 }
 
+#users
+{
+  overflow-y: scroll;
+}
+
 .users-container
 {
   background-color: #4F3E3E;
@@ -96,10 +102,21 @@ a:hover
   border-bottom: 1px solid #555;
   height: 40px;
   text-align: center;
-  padding: 2px 4px;
-  margin-left:2px;
-  line-height: 30px;
+  display:flexbox;
+  vertical-align: middle;
+  padding: 12px 8px;
+  padding-bottom: 10px !important;
   border-radius: 8px;
+}
+
+.sidebar-heights
+{
+  height: 50%;
+}
+
+.odjava-sidebar
+{
+  text-align: center;
 }
 
 .users-container:hover
@@ -177,6 +194,7 @@ a:hover
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
   max-width: 70%;
+  float: right;
 }
 
 .global-message
@@ -186,7 +204,7 @@ a:hover
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   max-width: 70%;
-
+  float: left;
 }
 .message-container
 {

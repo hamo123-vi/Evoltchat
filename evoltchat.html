@@ -22,7 +22,7 @@
         <!-- Main content-->
         <div class="container">
             <!--Navbar-->
-            <div class="row navbar fixed-top top">
+            <div id="nav-top" class="row navbar fixed-top top">
 
                 <div class="col-9 col-lg-6 col-md-9 col-sm-9 text-lg-left text-md-center text-center pl-lg-5 pl-md-0">
                     <p class="mt-2 mb-2 ml-lg-5">
@@ -33,14 +33,14 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4 text-right menu-container nav-item remove">
-                    <a class="menu nav-link"">
+                    <a id="logoutButton" onclick="doLogout()" class="menu nav-link"">
                         Odjava
                     </a>
                 </div>
 
                 <div class="col-lg-2 col-md-4 col-sm-4 text-left menu-container nav-item remove">
-                    <a class="menu nav-link" onclick="sidebarToggler()">
-                        Aktivni
+                    <a id="comButton" class="menu nav-link" onclick="sidebarToggler()">
+                        Zajednica
                     </a>
                 </div>
 
@@ -54,24 +54,38 @@
             <!--End of Navbar-->
 
             <!--Sidebar-->
-            <div id="sidebar" class="sidebar">
-                <div class="row">
-                    <div class="col-9 mb-5">
-                        <h4>Aktivni korisnici</h4>
-                    </div>
-                    <div class="col-3 mb-5">
-                        <a onclick="sidebarToggler()" class="menu">
-                            <i class="fas fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                    <div id="users">
-                        <div v-for="user in users" class="row users-container">
-                            <div id="username-container" class="col-9 float-left text-left">
-                                <p>{{user.username}}</p>
+            <div id="sidebar" class="sidebar pt-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="users-container col-12 mb-3">
+                                    <a onclick="doLogout()">
+                                        <h4  style="line-height: 5px;">
+                                            Odjava
+                                        </h4>
+                                    </a>
+                                </div>
                             </div>
-                            <div id="active-icon" class="col-3">
-                                <i class="fas fa-circle"></i>
+                            <div class="row">
+                                <div class="col-9 mb-5">
+                                    <h4>Aktivni korisnici</h4>
+                                </div>
+                                <div class="col-3 mb-5">
+                                    <a onclick="sidebarToggler()" class="menu">
+                                    <i class="fas fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="users">
+                            <div v-for="user in users" class="row users-container">
+                                <div id="username-container" class="col-9 float-left text-left">
+                                    <p>{{ user.username }}</p>
+                                </div>
+                                <div id="active-icon" class="col-3">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                            </div>
+
                             </div>
                         </div>
                     </div>
@@ -82,15 +96,15 @@
             <div class="row messages-window">
                 <div class="col-12">
                     <div id="messages" class="row messages-container mt-4 ml-lg-2 ml-1 mr-lg-2 mr-1 mb-4 p-1">
-                        <div v-for="item in items" class="col-12 px-1">
-                            <div v-if="item.message === 'Foo'" class="message global-message float-left">
+                        <div v-for="message in messages" class="col-12 px-1">
+                            <div v-if="message.user_id !== id" class="message global-message">
                                 <div  class=" message-container">
-                                    <p class="mx-3 my-1">hgggggggggggggggggggggggggggggggggggggggggggjlkkkkfčlkfčlkfčalkasdkfćaskdćflakfalčkfčlakfčlakćdsfkaćklfakfčadslk</p>
+                                    <p class="mx-3 my-1">{{ message.body }}</p>
                                 </div>
                             </div>
-                            <div v-else class="message my-message float-right">
+                            <div v-else class="message my-message">
                                 <div class="message-container">
-                                    <p class="mx-3 my-1">{{ item.message }}</p>
+                                    <p class="mx-3 my-1">{{ message.body }}</p>
                                 </div>
                             </div>
                         </div>
@@ -98,10 +112,10 @@
                 
                     <div class="row send-container mr-2 ml-2 mb-4 mt-4 p-lg-3 p-md-2 py-1">
                         <div id="input-container" class="col-lg-9 col-md-8 col-sm-8 col-6 align-middle d-flex px-0">
-                            <input type="text" class="message-text-input">
+                            <input id="message-text" type="text" class="message-text-input">
                         </div>
                         <div id="button-container" class="col-lg-3 col-md-4 col-sm-4 col-6 text-center px-0">
-                            <button class="btn send-button" type="button">Posalji</button>
+                            <button id="sendButton" onclick="sendMessage()" class="btn send-button" type="button">Posalji</button>
                         </div>
                     </div>
                 </div>
@@ -113,8 +127,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
+        <!-- JQuery dependencies -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         <!-- Import Vue.js framework -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- Import Axios for Vue.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Primary application behavior -->
         <script type="text/javascript" src="main.js"></script>

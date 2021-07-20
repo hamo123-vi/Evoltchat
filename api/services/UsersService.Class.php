@@ -24,6 +24,7 @@
                     "password" => sha1($user['password']),
                 ];
             $this->dao->insertUser($user);
+            $db_user= $this->dao->getUserByUsername($user['username']);
         }
 
         public function login($user)
@@ -39,7 +40,7 @@
         public function logout($user)
         {
             $db_user=$this->dao->getUserByUsername($user['username']);
-            $this->dao->updateActivity($db_user['username'], $db_user['active']-1);
+            $this->dao->updateActivity($db_user['username'], ["active" => $db_user['active']-1]);
         }
 
        
