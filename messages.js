@@ -13,7 +13,8 @@ new Vue({
         };
       },
       mounted() { setInterval( () =>
-        axios.get("http://localhost/Evoltchat/api/user/messages")
+        axios.get("http://localhost/Evoltchat/api/user/messages", { headers: { Authorization: localStorage.getItem('token') }
+            })
           .then(response => {
              this.messages = [...response.data];
           }), 1000)
@@ -37,13 +38,17 @@ function sendMessage()
       };
   
       $("#sendButton").prop('disabled',true);
-      $.post("http://localhost/Evoltchat/api/user/send", message_info).done(function( data ) 
-      {
-          document.getElementById("message-text").value=null;
-  
-      }).fail(function( error ) {
-          alert(error.responseJSON.message);
-          $("#sendButton").prop('disabled',false);
+
+      $.ajax({
+        method: 'POST',
+        headers: { Authorization: window.localStorage.getItem('token')},
+        url: "http://localhost/Evoltchat/api/user/send",
+        data: message_info
+      }).done(function() {
+        document.getElementById("message-text").value=null;
+      }).fail(function() {
+        alert(error.responseJSON.message);
+        $("#sendButton").prop('disabled',false);
       });
 }
 

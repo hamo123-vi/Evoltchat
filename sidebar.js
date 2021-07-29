@@ -18,7 +18,7 @@ new Vue({
         };
       },
     mounted() { setInterval(() =>
-        axios.get("http://localhost/Evoltchat/api/user/users")
+        axios.get("http://localhost/Evoltchat/api/user/users",  { headers: { Authorization: localStorage.getItem('token') } } )
           .then(response => {
              this.users = [...response.data]
           }), 1000)

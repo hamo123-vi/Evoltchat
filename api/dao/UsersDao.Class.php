@@ -16,7 +16,7 @@ class UsersDao extends BaseDao
     public function getActiveUsers()
     {
         return $this->query("SELECT * FROM users
-				WHERE active = true", []);
+				WHERE active >= 1 ", []);
     }
 
     public function insertUser($user)

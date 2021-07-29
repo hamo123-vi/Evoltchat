@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div id="users">
-                            <div v-for="user in users" class="row users-container">
+                            <div v-for="user in users" v-if="user.id != localStorage.getItem('id')" class="row users-container">
                                 <div id="username-container" class="col-9 text-left">
                                     <p>{{ user.username }}</p>
                                 </div>

@@ -14,8 +14,6 @@
  * ),
  */
 
-use Firebase\JWT\JWT;
-
 /**
  * @OA\Post(path="/register", tags={"Public"},
  * @OA\RequestBody(

@@ -10,6 +10,7 @@ function doLogin()
     $.post("http://localhost/Evoltchat/api/login", login_info).done(function( data ) 
     {
         window.localStorage.setItem('username', data.username);
+        window.localStorage.setItem('token', data.jwt);
         window.localStorage.setItem('id', data.id);
         window.location="evoltchat.html";
     }).fail(function( error ) {
@@ -31,6 +32,7 @@ function doRegister()
         {
             window.localStorage.setItem('username', data.username);
             window.localStorage.setItem('id', data.id);
+            window.localStorage.setItem('token', data.jwt);
             window.location="evoltchat.html";
         }).fail(function( error ) {
             alert(error.responseJSON.message);
@@ -49,15 +51,19 @@ function doLogout()
         {
             "username": window.localStorage.getItem('username')
         };
-    
-        $("#logoutButton").prop('disabled',true);
-        $.post("http://localhost/Evoltchat/api/user/logout", logout_info).done(function( data ) 
-        {
+
+        $.ajax({
+            method: 'POST',
+            headers: { Authorization: window.localStorage.getItem('token')},
+            url: "http://localhost/Evoltchat/api/user/logout",
+            data: logout_info
+          }).done(function() {
             window.localStorage.setItem('username', null);
             window.location="pocetna.html";
-        }).fail(function( error ) {
+          }).fail(function() {
+            alert(error.responseJSON.message);
             alert(error.responseJSON.message);
             $("#logoutButton").prop('disabled',false);
-        });
+          });
 }
 
