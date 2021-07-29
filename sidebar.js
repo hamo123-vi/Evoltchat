@@ -18,7 +18,7 @@ new Vue({
         };
       },
     mounted() { setInterval(() =>
-        axios.get("http://localhost/Evoltchat/api/users")
+        axios.get("http://localhost/Evoltchat/api/user/users")
           .then(response => {
              this.users = [...response.data]
           }), 1000)

@@ -17,6 +17,17 @@ require_once dirname(__FILE__)."/services/MessagesService.class.php";;
 #Registering Service layer
 Flight::register('usersService', 'UsersService');
 Flight::register('messagesService', 'MessagesService');
+
+#Swagger documentation
+Flight::route('GET /swagger', function(){
+    $openapi = @\OpenApi\scan(dirname(__FILE__)."/routes");
+    header('Content-Type: application/json');
+    echo $openapi->toJson();
+  });
+  
+  Flight::route('GET /', function(){
+    Flight::redirect('/docs');
+  });
   
 #Import Routes layer
 require_once dirname(__FILE__)."/routes/users-routes.php";

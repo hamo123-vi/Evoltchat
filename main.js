@@ -51,7 +51,7 @@ function doLogout()
         };
     
         $("#logoutButton").prop('disabled',true);
-        $.post("http://localhost/Evoltchat/api/logout", logout_info).done(function( data ) 
+        $.post("http://localhost/Evoltchat/api/user/logout", logout_info).done(function( data ) 
         {
             window.localStorage.setItem('username', null);
             window.location="pocetna.html";

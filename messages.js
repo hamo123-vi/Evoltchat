@@ -13,7 +13,7 @@ new Vue({
         };
       },
       mounted() { setInterval( () =>
-        axios.get("http://localhost/Evoltchat/api/messages")
+        axios.get("http://localhost/Evoltchat/api/user/messages")
           .then(response => {
              this.messages = [...response.data];
           }), 1000)
@@ -37,7 +37,7 @@ function sendMessage()
       };
   
       $("#sendButton").prop('disabled',true);
-      $.post("http://localhost/Evoltchat/api/send", message_info).done(function( data ) 
+      $.post("http://localhost/Evoltchat/api/user/send", message_info).done(function( data ) 
       {
           document.getElementById("message-text").value=null;
   

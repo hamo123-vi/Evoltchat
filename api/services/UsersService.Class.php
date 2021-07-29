@@ -1,7 +1,8 @@
 <?php 
     require_once dirname(__FILE__)."/../dao/UsersDao.Class.php";
     require_once dirname(__FILE__)."/../UsernameGenerator.Class.php";
-    #use \Firebase\JWT\JWT;
+    require_once dirname(__FILE__)."/../Config.Class.php";
+    use \Firebase\JWT\JWT;
     class UsersService 
     {
         
@@ -27,7 +28,8 @@
             $db_user=$this->dao->getUserByUsername($user['username']);
             $this->dao->updateActivity($db_user['username'], ['active' => $db_user['active']+1]);
             $db_user=$this->dao->getUserByUsername($user['username']);
-            return $db_user;
+            $jwt = JWT::encode(["id" => $db_user["id"], "username" => $db_user["username"]], Config::JWT_SECRET);
+            return ['token' => $jwt];
         }
 
         public function login($user)
@@ -37,7 +39,8 @@
             if($db_user['password'] != sha1($user['password'])) throw new Exception("Pogrešna kombinacija korisničkog imena i lozinke", 400);
             $this->dao->updateActivity($db_user['username'], ['active' => $db_user['active']+1]);
             $db_user=$this->dao->getUserByUsername($user['username']);
-            return $db_user;
+            $jwt = JWT::encode(["id" => $db_user["id"], "username" => $db_user["username"]], Config::JWT_SECRET);
+            return ['token' => $jwt];
         }
 
         public function logout($user)
