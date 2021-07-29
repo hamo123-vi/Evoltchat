@@ -23,11 +23,22 @@
     overflow-y: hidden !important;
 }
 
+.sidebar-menu-container
+{
+  display: flex  !important;
+}
+
 .messages-window
 {
     top:130px !important;
     width:90% !important;
     margin-top:25px !important;
+}
+
+.menu
+{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 
 ::-webkit-scrollbar {

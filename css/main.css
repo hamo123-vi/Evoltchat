@@ -26,6 +26,8 @@ body
   font-weight: normal;
   font-size: 26px;
   color: #E49010 !important;
+  margin-left:10px !important;
+  margin-right:10px !important;
 }
 
 .caption-extension
@@ -64,6 +66,20 @@ a:hover
   color:wheat
 }
 
+.notification-number
+{
+  position: absolute !important;
+  top: 10px !important;
+  background-color: red;
+  border-radius: 50%;
+  color: black !important;
+  font-family: 'Roboto' !important;
+  font-size: 16px !important;
+  padding: 2px;
+  min-width: 20px;
+  text-align: center;
+}
+
 .sidebar
 {
   font-family: Rosario;
@@ -79,39 +95,57 @@ a:hover
   height:100%;
   display: none;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  padding: 0 25px;
+  padding-right: 0px !important;
+  border-bottom: 1px solid #555;
+}
+
+.sidebar-menu-container
+{
+  display:none;
+  padding:0 !important;
+  width: 100%;
+  border-bottom: 1px solid #555;
+
+}
+
+#x
+{
+  padding-right:15px !important;
 }
 
 #active-icon
 {
   color: limegreen;
   font-size: 10px;
-  position: relative;
-  top: 13px;
+  height: 100%;
+  width: 100%;
+  line-height: 40px;
+  text-align: right !important;
+  padding-right: 15px !important;
 }
 
 #users
 {
-  overflow-y: scroll;
+  height:fit-content;
+  width:100%;
+  padding-right: 0px !important;
 }
 
 .users-container
 {
   background-color: #4F3E3E;
   color:#E49010;
-  border-bottom: 1px solid #555;
   height: 40px;
-  text-align: center;
-  display:flexbox;
-  vertical-align: middle;
-  padding: 12px 8px;
-  padding-bottom: 10px !important;
   border-radius: 8px;
+  width: 100%;
+  border-bottom: 1px solid #555;
 }
 
-.sidebar-heights
+#username-container
 {
-  height: 50%;
+  line-height: 40px;
 }
 
 .odjava-sidebar

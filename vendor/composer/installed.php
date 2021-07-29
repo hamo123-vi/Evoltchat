@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'a069c94c98bcee539a3777f8991c31a50761d1b2',
+    'reference' => '06ebb7d3434068a9183201a0f51dcf109919d98f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'a069c94c98bcee539a3777f8991c31a50761d1b2',
+      'reference' => '06ebb7d3434068a9183201a0f51dcf109919d98f',
     ),
     'mikecao/flight' => 
     array (
