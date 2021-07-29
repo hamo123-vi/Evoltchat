@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '06ebb7d3434068a9183201a0f51dcf109919d98f',
+    'reference' => 'dbfaf6d11c3fd1f784758f047df5dcadca039bb1',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '06ebb7d3434068a9183201a0f51dcf109919d98f',
+      'reference' => 'dbfaf6d11c3fd1f784758f047df5dcadca039bb1',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.4.0',
+      'version' => '5.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd2113d9b2e0e349796e72d2a63cf9319100382d2',
     ),
     'mikecao/flight' => 
     array (
