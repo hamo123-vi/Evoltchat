@@ -1,12 +1,26 @@
 function sidebarToggler()
 {
-    if(document.getElementById("sidebar").style.display === "block")
+    if(document.getElementById("active-users-sidebar").style.display === "block")
     {
-        document.getElementById("sidebar").style.display = "none";
+      document.getElementById("active-users-sidebar").style.display = "none";
     }
     else
     {
-        document.getElementById("sidebar").style.display = "block";
+      document.getElementById("notifications-sidebar").style.display = "none";
+      document.getElementById("active-users-sidebar").style.display = "block";
+    }
+}
+
+function notificationSidebarToggler()
+{
+    if(document.getElementById("notifications-sidebar").style.display === "block")
+    {
+      document.getElementById("notifications-sidebar").style.display = "none";
+    }
+    else
+    {
+      document.getElementById("active-users-sidebar").style.display = "none";
+      document.getElementById("notifications-sidebar").style.display = "block";
     }
 }
 

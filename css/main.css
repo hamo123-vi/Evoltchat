@@ -4,6 +4,7 @@ body
 {
   background-color: #E49010;
   overflow-y: hidden;
+  display: none;
 }
 
 .caption
@@ -13,6 +14,11 @@ body
   font-weight: bold;
   font-size: 42px;
   color: #E49010;
+}
+
+.user-info-container
+{
+  border-bottom: 1px solid #555;
 }
 
 .caption:hover
@@ -66,20 +72,6 @@ a:hover
   color:wheat
 }
 
-.notification-number
-{
-  position: absolute !important;
-  top: 10px !important;
-  background-color: red;
-  border-radius: 50%;
-  color: black !important;
-  font-family: 'Roboto' !important;
-  font-size: 16px !important;
-  padding: 2px;
-  min-width: 20px;
-  text-align: center;
-}
-
 .sidebar
 {
   font-family: Rosario;
@@ -110,7 +102,7 @@ a:hover
 
 }
 
-#x
+.x
 {
   padding-right:15px !important;
 }
@@ -126,14 +118,16 @@ a:hover
   padding-right: 15px !important;
 }
 
-#users
+#users, #notifications
 {
-  height:fit-content;
+  height:max-content;
   width:100%;
   padding-right: 0px !important;
+  overflow-y: scroll !important;
+  line-height: 0.2 !important
 }
 
-.users-container
+.users-container, .notifications-container
 {
   background-color: #4F3E3E;
   color:#E49010;
@@ -143,17 +137,12 @@ a:hover
   border-bottom: 1px solid #555;
 }
 
-#username-container
+#username-container, #notification-container
 {
   line-height: 40px;
 }
 
-.odjava-sidebar
-{
-  text-align: center;
-}
-
-.users-container:hover
+.users-container:hover, .notifications-container:hover
 {
   background-color: #555;
 }

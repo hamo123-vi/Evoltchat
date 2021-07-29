@@ -58,10 +58,9 @@ function doLogout()
             url: "http://localhost/Evoltchat/api/user/logout",
             data: logout_info
           }).done(function() {
-            window.localStorage.setItem('username', null);
+            window.localStorage.clear();
             window.location="pocetna.html";
           }).fail(function() {
-            alert(error.responseJSON.message);
             alert(error.responseJSON.message);
             $("#logoutButton").prop('disabled',false);
           });

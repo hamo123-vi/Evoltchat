@@ -26,8 +26,6 @@
                 ];
             $this->dao->insertUser($user);
             $db_user=$this->dao->getUserByUsername($user['username']);
-            $this->dao->updateActivity($db_user['username'], ['active' => $db_user['active']+1]);
-            $db_user=$this->dao->getUserByUsername($user['username']);
             $jwt = JWT::encode(["id" => $db_user["id"], "username" => $db_user["username"]], Config::JWT_SECRET);
             return ['jwt' => $jwt, 'id' => $db_user['id'], 'username' => $db_user['username']];
         }

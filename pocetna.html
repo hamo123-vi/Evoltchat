@@ -18,7 +18,7 @@
         
     </head>
 
-    <body>
+    <body id="start-body">
 
         <!-- Main content-->
         <div class="container">
@@ -91,6 +91,18 @@
 
         <!-- Primary application behavior -->
         <script type="text/javascript" src="main.js"></script>
+        <script>
+            $(document).ready(function() {
+                if (window.localStorage.getItem("token"))
+                {
+                window.location = "evoltchat.html";
+                }
+                else
+                {
+                document.getElementById("start-body").style.display = "block";
+                }
+            });
+        </script>
 
     </body>
 </html>

@@ -17,7 +17,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     </head>
 
-    <body>
+    <body id="logged-body">
 
         <!-- Main content-->
         <div class="container">
@@ -46,8 +46,8 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="sidebarToggler()" class="nav-link menu">
-                                <i class="fas fa-bell"><span class="notification-number">3</span></i>
+                            <a onclick="notificationSidebarToggler()" class="nav-link menu">
+                                <i class="fas fa-bell"></i>
                             </a>
                           </li>
                       </ul>
@@ -63,8 +63,8 @@
             </div>
             <!--End of Navbar-->
 
-            <!--Sidebar-->
-            <div id="sidebar" class="sidebar pt-3">
+            <!-- Active users Sidebar-->
+            <div id="active-users-sidebar" class="sidebar pt-3">
                 <div class="row">
                     <div class="col p-0">
                         <div class="row sidebar-menu-container">
@@ -74,12 +74,12 @@
                                 </a>
                             </div>
                             <div class="col-4 mb-1 p-0">
-                                <a class="menu text-center">
+                                <a onclick="sidebarToggler()" class="menu text-center">
                                     <p>&nbsp;<i class="fas fa-users"></i></p>
                                 </a>
                             </div>
                             <div class="col-4 mb-1 p-0">
-                                <a class="menu">
+                                <a onclick="notificationSidebarToggler()" class="menu">
                                     <p>&nbsp;<i class="fas fa-bell"></i></p>
                                 </a>
                             </div>
@@ -107,7 +107,47 @@
                     </div>
                 </div>
             </div>
-            <!-- End of sidebar -->
+            <!-- End of Active users Sidebar -->
+
+                        <!-- Notifications Sidebar-->
+                        <div id="notifications-sidebar" class="sidebar pt-3">
+                            <div class="row">
+                                <div class="col p-0">
+                                    <div class="row sidebar-menu-container">
+                                        <div class="col-4 mb-1 p-0">
+                                            <a class="menu text-center" onclick="doLogout()">
+                                                <p>&nbsp;<i class="fas fa-sign-out-alt"></i></p>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mb-1 p-0">
+                                            <a onclick="sidebarToggler()" class="menu text-center">
+                                                <p>&nbsp;<i class="fas fa-users"></i></p>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mb-1 p-0">
+                                            <a onclick="notificationSidebarToggler()" class="menu">
+                                                <p>&nbsp;<i class="fas fa-bell"></i></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-9 mb-5 mt-3">
+                                            <h4>Obavijesti</h4>
+                                        </div>
+                                        <div class="col-2 mb-5 mt-3 x">
+                                            <a onclick="notificationSidebarToggler()" class="menu">
+                                                <p><i class="fas fa-times"></i></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="notifications">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Notifications Sidebar -->
 
             <!-- Messages window -->
             <div class="row messages-window">
@@ -154,6 +194,17 @@
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="messages.js"></script>
         <script type="text/javascript" src="sidebar.js"></script>
-        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                if (!window.localStorage.getItem("token"))
+                {
+                window.location = "pocetna.html";
+                }
+                else
+                {
+                document.getElementById("logged-body").style.display = "block";
+                }
+            });
+        </script>
     </body>
 </html>
